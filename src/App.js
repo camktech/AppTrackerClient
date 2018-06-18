@@ -15,17 +15,10 @@ import Nav from './components/Nav.js';
 class App extends Component {
 
   userAuthorized(){
-    return true;
-  }
-
-  path(path){
-    return this.userAuthorized() ? '/applications' : '/login';
-  }
-
-  redirectIfUnauthorized(){
-    if(!this.userAuthorized()){
-      return (<Redirect to={this.path('/applications')}/>);
-    }
+    localStorage.setItem('loggedIn', true);
+    console.log(localStorage.getItem('loggedIn'))
+    return (localStorage.getItem('loggedIn') == 'true') ? true : false;
+    // return false
   }
 
   render() {
@@ -35,12 +28,10 @@ class App extends Component {
         <Router history={history}>
           <div className="App">
             <Nav/>
-            <Redirect to='/applications'/>
             <Route path='/applications' component={Applications}/>
             <Route path='/interviews' component={Interviews}/>
             <Route path='/profile' component={Profile}/>
-            <Route path='/login' component={Login}/>
-            <Route path='/register' component={Register}/>
+            <Route exact path='/' component={Applications}/>
           </div>
         </Router>
       );
@@ -52,6 +43,7 @@ class App extends Component {
           <div className="App">
             <Redirect to='/login'/>
             <Route path='/login' component={Login}/>
+            <Route path='/register' component={Register}/>
           </div>
         </Router>
       );

@@ -6,6 +6,10 @@ class ApplicationsService extends Service {
     return axios.get('http://localhost:3000/applications');
   }
 
+  static search(query){
+    return axios.get('http://localhost:3000/applications/search?query=' + query); 
+  }
+
 
 }
 

@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import '../css/nav.css';
 
 class Nav extends Component {
   render(){
     return (
-      <div className='nav-componenet'>
-        <div className='nav-tab'>
-          <Link to={'/interviews'}>Interviews</Link>
-        </div>
+      <ul className='nav nav-tabs'>
+        <li className='nav-item'>
+          <NavLink to='/interviews' className='nav-link'>Interviews</NavLink>
+        </li>
 
-        <div className='nav-tab'>
-          <Link to={'/applications'}>Applications</Link>
-        </div>
+        <li className='nav-item'>
+          <NavLink exact to={'/applications'} className='nav-link'>Applications</NavLink>
+        </li>
 
-        <div className='nav-tab'>
-          <Link to={'/profile'}>Profile</Link>
-        </div>
-      </div>
+        <li className='nav-item'>
+          <NavLink to='/profile' className='nav-link'>Profile</NavLink>
+        </li>
+      </ul>
+
     )
   }
 }

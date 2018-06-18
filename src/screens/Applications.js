@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ApplicationsService from '../services/ApplicationsService.js'
 import Application from '../components/Application.js';
+import '../css/applications.css'
 
 class Applications extends Component {
 
@@ -13,7 +14,7 @@ class Applications extends Component {
 
   render(){
     return (
-      <div>
+      <div className='screen'>
 
       {this.state.applications.map((application) => {
         return (
@@ -28,6 +29,7 @@ class Applications extends Component {
   componentDidMount() {
     ApplicationsService.getAll()
     .then(res => {
+      console.log(res.data)
       this.setState({applications: res.data});
     })
     .catch(error => {

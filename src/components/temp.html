@@ -1,0 +1,26 @@
+    <div className='application'>
+      <div class='container'>
+
+        <div class='row'>
+          <div class='col-md-6'>X</div>
+          <div class='col-md-6'>
+            <Moment format='DD/MM/YY'>
+              {application.date}
+            </Moment>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='col-md-10'>
+            <p>{application.position} at {application.company_name}</p>
+          </div>
+          <div class='col-md-2'>skills</div>
+        </div>
+
+        <div class='row'>
+          <div class='col-md-8'>Resume: {application.resume_id}</div>
+          <div class='col-md-4'>80% match</div>
+        </div>
+
+      </div>
+    </div>
